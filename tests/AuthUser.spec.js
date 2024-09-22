@@ -1,0 +1,31 @@
+const { test, expect } = require('@playwright/test')
+const AuthPage = require('../pageObject/AuthPage.js')
+const userData = require('../fixtures/userData.json')
+const invalidUserData = require('../fixtures/invalidUserData.json')
+
+test('Successful user authorization', async ({ page }) => {
+    const signIn = new AuthPage(page)
+    await page.goto('/')
+    await page.locator('#account a.login').click()
+    await expect(page.locator('#login-form label[for="username"]')).toHaveText('Login')
+    await expect(signIn.isAutoLoginChecked()).not.toBeChecked()
+    await signIn.getUserName().fill(userData.login)
+    await signIn.getUserPassword().fill(userData.password)
+    await signIn.isAutoLoginChecked().check()
+    await expect(signIn.isAutoLoginChecked()).toBeChecked()
+    await expect(signIn.getUserPassword()).toHaveAttribute('type', 'password')
+    await expect(signIn.getUserName()).toHaveValue(userData.login)
+    await expect(signIn.getUserPassword()).toHaveValue(userData.password)
+    await signIn.submitButton().click()
+    await expect(page.locator('#account >ul>li>a.logout')).toBeVisible()
+})
+
+test('Unsuccessful user authorization with invalid credentials', async ({ page }) => {
+    const signIn = new AuthPage(page)
+    await page.goto('/')
+    await page.locator('#account a.login').click()
+    await signIn.getUserName().fill(invalidUserData.login)
+    await signIn.getUserPassword().fill(invalidUserData.password)
+    await signIn.submitButton().click()
+    await expect(page.locator('#flash_error')).toHaveText('Invalid user or password')
+});
