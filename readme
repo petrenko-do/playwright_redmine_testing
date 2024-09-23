@@ -1,0 +1,29 @@
+This repository contains automated tests for user registration, authorization, and issue creation on a website using the Playwright testing library.
+
+Installation:
+Clone the repository:
+git clone https://github.com/petrenko-do/playwright_redmine_testing
+
+Running Tests:
+To run the tests, use the following command:
+npx playwright test
+
+Test Descriptions:
+User Registration Test: Validates the registration process with valid user data.
+User Authorization Test: Checks the authorization process with valid credentials.
+Invalid Authorization Test: Validates the error message when invalid credentials are provided.
+Search Test: Tests the search functionality with specific keywords and filters.
+Create Question Test: Tests the issue creation process in Redmine.
+
+Data Files:
+userData.json: Contains valid user registration data.
+invalidUserData.json: Contains invalid user credentials for testing authorization failures.
+searchData.json: Contains search keywords used in the search test.
+createQuestionData.json: Contains data related to issue types, statuses, categories, and versions.
+
+Classes:
+SignUpPage: Handles interactions with the user registration page.
+AuthPage: Manages elements on the user login page.
+InvalidAuthPage: Manages elements on the invalid login page.
+SearchPage: Handles the search functionality on the page.
+CreateQuestion: Manages the creation of new questions in Redmine.
