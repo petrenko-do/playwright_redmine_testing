@@ -7,4 +7,4 @@ class Helper {
         return rnd.substring(0, i);
     }
 }
-module.exports = new Helper();
+module.exports = Helper;
