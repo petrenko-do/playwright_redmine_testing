@@ -12,6 +12,7 @@
     "@types/node": "^22.5.5"
   },
   "dependencies": {
+    "allure-playwright": "^3.0.1",
     "faker": "^6.6.6"
   }
 }
