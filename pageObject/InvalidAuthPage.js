@@ -1,4 +1,4 @@
-class AuthPage {
+class InvalidAuthPage {
     constructor(page) {
         this.page = page;
     }
@@ -10,12 +10,9 @@ class AuthPage {
     }
     getUserPassword() {
         return this.page.locator('#password')
-    }
-    isAutoLoginChecked() {
-        return this.page.locator('#autologin')
-    }    
+    }  
     submitButton() {
         return this.page.locator('#login-form input#login-submit')
     }
 }
-module.exports = AuthPage;
+module.exports = InvalidAuthPage;

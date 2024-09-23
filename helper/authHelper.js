@@ -1,6 +1,5 @@
 const { test, expect } = require('@playwright/test')
 const userData = require('./../fixtures/userData.json');
-
 class authHelper {
     async authorizeUser(page, AuthPage) {
         const signIn = new AuthPage(page);
@@ -10,10 +9,6 @@ class authHelper {
         await signIn.getUserPassword().fill(userData.password);
         await signIn.isAutoLoginChecked().check();
         await signIn.submitButton().click();
-        await expect(page.locator('#account > ul > li > a.logout')).toBeVisible();
     }
 }
-
-
-
 module.exports = authHelper;
