@@ -5,7 +5,9 @@
   "directories": {
     "test": "tests"
   },
-  "scripts": {},
+  "scripts": {
+     "allure-report": "allure generate allure-results --clean -o allure-history"
+  },
   "keywords": [
     "playwright",
     "playwright-test",

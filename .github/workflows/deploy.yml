@@ -48,12 +48,12 @@ jobs:
         name: allure-test-results
         path: allure-report/
 
-    # Публикация отчета JUnit
-    - name: Publish JUnit Report
-      uses: mikepenz/action-junit-report@v2
-      if: always() 
-      with:
-        report_paths: 'junit-results/*.xml'
+    # # Публикация отчета JUnit
+    # - name: Publish JUnit Report
+    #   uses: mikepenz/action-junit-report@v2
+    #   if: always() 
+    #   with:
+    #     report_paths: 'junit-results/*.xml'
 
     # Получение истории Allure
     - name: Get Allure history
