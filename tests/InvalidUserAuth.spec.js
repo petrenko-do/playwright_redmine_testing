@@ -2,6 +2,7 @@ const { test, expect } = require('@playwright/test')
 const InvalidAuthPage = require('../pageObject/InvalidAuthPage.js')
 const invalidUserData = require('../fixtures/invalidUserData.json')
 
+
 test('Authorization with invalid passwords', async ({ page }) => {
     const InvalidAuth = new InvalidAuthPage(page)
     await page.goto('/')
