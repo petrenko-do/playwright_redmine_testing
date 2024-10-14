@@ -79,10 +79,19 @@ jobs:
     #     keep_reports: 20
 
     # Публикация отчета на GitHub Pages
-    - name: Deploy report to Github Pages
-      if: always()
-      uses: peaceiris/actions-gh-pages@v3
+    # - name: Deploy report to Github Pages
+    #   if: always()
+    #   uses: peaceiris/actions-gh-pages@v3
+    #   with:
+    #     github_token: ${{ secrets.ACCESS_TOKEN }}
+    #     publish_branch: gh-pages
+    #     publish_dir: allure-results
+
+
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v4
       with:
-        github_token: ${{ secrets.ACCESS_TOKEN }}
+        deploy_key: ${{ secrets.ACCESS_TOKEN }}
+        external_repository: username/external-repository
         publish_branch: gh-pages
-        publish_dir: allure-results
+        publish_dir: ./public
