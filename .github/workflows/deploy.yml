@@ -94,4 +94,4 @@ jobs:
         deploy_key: ${{ secrets.ACCESS_TOKEN }}
         external_repository: username/external-repository
         publish_branch: gh-pages
-        publish_dir: ./public
+        publish_dir: allure-results
