@@ -44,14 +44,16 @@ jobs:
       if: always()
       with:
         name: playwright-test-results
-        path: test-results/
+        # path: test-results/
+        path: ./test-results/
 
     # Загружаем результаты отчета Allure как артефакты
     - uses: actions/upload-artifact@v4
       if: always()
       with:
         name: allure-test-results
-        path: allure-report/
+        # path: allure-report/
+        path: ./allure-results/
 
     # # Публикация отчета JUnit
     # - name: Publish JUnit Report
@@ -94,4 +96,4 @@ jobs:
         deploy_key: ${{ secrets.ACCESS_TOKEN }}
         external_repository: username/external-repository
         publish_branch: gh-pages
-        publish_dir: allure-results
+        publish_dir: ./allure-results
