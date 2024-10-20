@@ -6,7 +6,7 @@
     "test": "tests"
   },
   "scripts": {
-     "allure-report": "allure generate allure-results --clean -o allure-history"
+     "allure-report": "allure generate allure-results --clean"
   },
   "keywords": [
     "playwright",
