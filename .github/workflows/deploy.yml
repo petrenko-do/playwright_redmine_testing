@@ -39,6 +39,12 @@ jobs:
       if: always()
       run: npm run allure-report
 
+    - name: Check Playwright test-results
+      run: ls -la ./test-results
+    
+    - name: Check Allure results
+      run: ls -la ./allure-results
+
     # Загружаем результаты тестов Playwright как артефакты
     - uses: actions/upload-artifact@v4
       if: always()
@@ -52,8 +58,8 @@ jobs:
       if: always()
       with:
         name: allure-test-results
-        # path: allure-report/
-        path: ./allure-results
+        path: ./allure-report
+        # path: ./allure-results
 
     # # Публикация отчета JUnit
     # - name: Publish JUnit Report

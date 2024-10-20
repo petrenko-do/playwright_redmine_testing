@@ -6,7 +6,8 @@
     "test": "tests"
   },
   "scripts": {
-     "allure-report": "allure generate allure-results --clean"
+    "allure-report": "allure generate allure-results --clean",
+    "test-report": "playwright show-report test-results"
   },
   "keywords": [
     "playwright",

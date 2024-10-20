@@ -12,11 +12,12 @@ const { AllureReporter } = require('allure-playwright');
  * @see https://playwright.dev/docs/test-configuration
  */
 module.exports = defineConfig({
-  reporter: [
-    ['line'],
-    ['allure-playwright'],
-    ['html']
-  ],
+  // reporter: [
+  //   ['line'],
+  //   ['allure-playwright'],
+  //   ['html']
+  // ],
+  "reporter": [["list"], ["html", { "outputFolder": "test-results", "open": "never" }]],
   testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: true,
