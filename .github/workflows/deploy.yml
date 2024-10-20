@@ -43,7 +43,8 @@ jobs:
       run: ls -la ./test-results
     
     - name: Check Allure results
-      run: ls -la ./allure-results
+      # run: ls -la ./allure-results
+      run: ls -la ./allure-report
 
     # Загружаем результаты тестов Playwright как артефакты
     - uses: actions/upload-artifact@v4
