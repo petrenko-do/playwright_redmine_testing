@@ -40,6 +40,11 @@ jobs:
       if: always()
       run: npm run allure-report
 
+    # Запуск тестов Playwright с генерацией отчёта Allure
+    - name: Run Playwright tests with Allure
+      run: npx playwright test --reporter=line,allure-playwright
+
+
     - name: Check Playwright test-results
       run: ls -la ./test-results
     
