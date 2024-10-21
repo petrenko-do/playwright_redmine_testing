@@ -107,3 +107,4 @@ jobs:
         publish_branch: gh-pages
         # publish_dir: ./allure-results
         publish_dir: ./allure-report
+        disable_nojekyll: true
