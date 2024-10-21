@@ -1,0 +1,6 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","30013","Create new questions in Redmine","chromium","Mon Oct 21 15:08:24 UTC 2024","broken","Mon Oct 21 15:08:54 UTC 2024","","createQuestion.spec.js","",""
+"","5947","Search by keyword with filtering by category","chromium","Mon Oct 21 15:09:00 UTC 2024","passed","Mon Oct 21 15:09:06 UTC 2024","","search.spec.js","",""
+"","10281","Successful user authorization","chromium","Mon Oct 21 15:08:13 UTC 2024","failed","Mon Oct 21 15:08:23 UTC 2024","","authUser.spec.js","",""
+"","9648","Registration of a user on the website using valid data","chromium","Mon Oct 21 15:09:06 UTC 2024","failed","Mon Oct 21 15:09:16 UTC 2024","","signUp.spec.js","",""
+"","5081","Authorization with invalid passwords","chromium","Mon Oct 21 15:08:55 UTC 2024","passed","Mon Oct 21 15:09:00 UTC 2024","","InvalidUserAuth.spec.js","",""
