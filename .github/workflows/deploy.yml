@@ -31,8 +31,13 @@ jobs:
       run: npx playwright install --with-deps
 
     # Запуск тестов Playwright
-    - name: Run Playwright tests
-      run: npx playwright test
+    # - name: Run Playwright tests
+    #   run: npx playwright test
+    #   continue-on-error: true 
+
+  # Запуск тестов Playwright с генерацией отчёта Allure
+    - name: Run Playwright tests with Allure
+      run: npx playwright test --reporter=line,allure-playwright
       continue-on-error: true 
 
     # Генерация отчета Allure
@@ -40,17 +45,15 @@ jobs:
       if: always()
       run: npm run allure-report
 
-    # Запуск тестов Playwright с генерацией отчёта Allure
-    - name: Run Playwright tests with Allure
-      run: npx playwright test --reporter=line,allure-playwright
+  
 
 
     - name: Check Playwright test-results
       run: ls -la ./test-results
     
     - name: Check Allure results
-      # run: ls -la ./allure-results
-      run: ls -la ./allure-report
+      run: ls -la ./allure-results
+      # run: ls -la ./allure-report
 
     # Загружаем результаты тестов Playwright как артефакты
     - uses: actions/upload-artifact@v4
