@@ -1,9 +1,0 @@
-{
-  "issue": ["Defect","Feature","Patch"],
-  "issueIndex": 0,
-  "issueStatus": ["New","Resolved"],
-  "issueStatusIndex": 0,
-  "issueCategory": "Themes",
-  "issueAffectedVersion": "0.7.2"
-}
-
