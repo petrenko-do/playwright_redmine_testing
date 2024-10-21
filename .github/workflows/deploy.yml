@@ -10,7 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-      # contents: read
       issues: read
       checks: write
       pull-requests: write
@@ -30,11 +29,6 @@ jobs:
     - name: Install Playwright
       run: npx playwright install --with-deps
 
-    # Запуск тестов Playwright
-    # - name: Run Playwright tests
-    #   run: npx playwright test
-    #   continue-on-error: true 
-
   # Запуск тестов Playwright с генерацией отчёта Allure
     - name: Run Playwright tests with Allure
       run: npx playwright test --reporter=line,allure-playwright
@@ -45,22 +39,21 @@ jobs:
       if: always()
       run: npm run allure-report
 
-  
-
 
     - name: Check Playwright test-results
       run: ls -la ./test-results
     
     - name: Check Allure results
       run: ls -la ./allure-results
-      # run: ls -la ./allure-report
+
+    - name: Check Allure report
+      run: ls -la ./allure-report
 
     # Загружаем результаты тестов Playwright как артефакты
     - uses: actions/upload-artifact@v4
       if: always()
       with:
         name: playwright-test-results
-        # path: test-results/
         path: ./test-results
 
     # Загружаем результаты отчета Allure как артефакты
@@ -69,50 +62,11 @@ jobs:
       with:
         name: allure-test-results
         path: ./allure-report
-        # path: ./allure-results
-
-    # # Публикация отчета JUnit
-    # - name: Publish JUnit Report
-    #   uses: mikepenz/action-junit-report@v2
-    #   if: always() 
-    #   with:
-    #     report_paths: 'junit-results/*.xml'
-
-    # Получение истории Allure
-    # - name: Get Allure history
-    #   uses: actions/checkout@v2
-    #   if: always()
-    #   continue-on-error: true
-    #   with:
-    #     ref: gh-pages
-    #     path: gh-pages
-
-    # Действие для обновления отчета Allure из Marketplace
-    # - name: Allure Report action from marketplace
-    #   uses: simple-elf/allure-report-action@master
-    #   if: always()
-    #   with:
-    #     allure_results: allure-results
-    #     allure_history: allure-history
-    #     keep_reports: 20
-
-    # Публикация отчета на GitHub Pages
-    # - name: Deploy report to Github Pages
-    #   if: always()
-    #   uses: peaceiris/actions-gh-pages@v3
-    #   with:
-    #     github_token: ${{ secrets.ACCESS_TOKEN }}
-    #     publish_branch: gh-pages
-    #     publish_dir: allure-results
-
 
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v4
       with:
-        # deploy_key: ${{ secrets.GITHUB_TOKEN }}
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        # external_repository: username/external-repository
         publish_branch: gh-pages
-        # publish_dir: ./allure-results
         publish_dir: ./allure-report
         disable_nojekyll: true
